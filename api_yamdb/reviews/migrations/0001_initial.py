@@ -67,8 +67,7 @@ class Migration(migrations.Migration):
                 (
                     "date_joined",
                     models.DateTimeField(
-                        default=django.utils.timezone.now,
-                        verbose_name="date joined",
+                        default=django.utils.timezone.now, verbose_name="date joined",
                     ),
                 ),
                 (
@@ -105,9 +104,7 @@ class Migration(migrations.Migration):
                 (
                     "confirmation_code",
                     models.CharField(
-                        max_length=255,
-                        null=True,
-                        verbose_name="Код подтверждения",
+                        max_length=255, null=True, verbose_name="Код подтверждения",
                     ),
                 ),
                 (
@@ -138,9 +135,7 @@ class Migration(migrations.Migration):
                 "verbose_name_plural": "Пользователи",
                 "ordering": ("username",),
             },
-            managers=[
-                ("objects", django.contrib.auth.models.UserManager()),
-            ],
+            managers=[("objects", django.contrib.auth.models.UserManager()),],
         ),
         migrations.CreateModel(
             name="Category",
@@ -154,22 +149,13 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                (
-                    "name",
-                    models.CharField(max_length=256, verbose_name="Категория"),
-                ),
+                ("name", models.CharField(max_length=256, verbose_name="Категория"),),
                 (
                     "slug",
-                    models.SlugField(
-                        unique=True,
-                        verbose_name="Slug категории",
-                    ),
+                    models.SlugField(unique=True, verbose_name="Slug категории",),
                 ),
             ],
-            options={
-                "verbose_name": "Категория",
-                "verbose_name_plural": "Категории",
-            },
+            options={"verbose_name": "Категория", "verbose_name_plural": "Категории",},
         ),
         migrations.CreateModel(
             name="Genre",
@@ -187,15 +173,9 @@ class Migration(migrations.Migration):
                     "name",
                     models.CharField(max_length=200, verbose_name="Название жанра"),
                 ),
-                (
-                    "slug",
-                    models.SlugField(unique=True, verbose_name="Slug жанра"),
-                ),
+                ("slug", models.SlugField(unique=True, verbose_name="Slug жанра"),),
             ],
-            options={
-                "verbose_name": "Жанр",
-                "verbose_name_plural": "Жанры",
-            },
+            options={"verbose_name": "Жанр", "verbose_name_plural": "Жанры",},
         ),
         migrations.CreateModel(
             name="Title",
@@ -225,10 +205,7 @@ class Migration(migrations.Migration):
                 (
                     "description",
                     models.TextField(
-                        blank=True,
-                        max_length=255,
-                        null=True,
-                        verbose_name="Описание",
+                        blank=True, max_length=255, null=True, verbose_name="Описание",
                     ),
                 ),
                 (
@@ -245,9 +222,7 @@ class Migration(migrations.Migration):
                 (
                     "genre",
                     models.ManyToManyField(
-                        related_name="titles",
-                        to="reviews.Genre",
-                        verbose_name="Жанр",
+                        related_name="titles", to="reviews.Genre", verbose_name="Жанр",
                     ),
                 ),
             ],

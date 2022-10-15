@@ -12,9 +12,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RenameField(
-            model_name="review",
-            old_name="rating",
-            new_name="score",
+            model_name="review", old_name="rating", new_name="score",
         ),
         migrations.AddField(
             model_name="user",
